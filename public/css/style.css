@@ -1,0 +1,1702 @@
+@import 'style.css';
+
+/* CSS bawaan atau CSS lain bisa ada di bawah sini */
+
+/* ======================= General Styles ======================= */
+:root {
+    --gradient-start: #4c2a85;
+    --gradient-end: #3b82c4;
+    --dark-text: #333;
+    --light-text: #ffffff;
+    --secondary-text: #555;
+    --background-light: #f9f9f9;
+    --purple: #46074E; /* Variabel baru dari CSS Anda */
+    --blue: #197BD0;   /* Variabel baru dari CSS Anda */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    color: var(--dark-text);
+    background-color: #fff;
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    /* PERBAIKAN: Padding diubah agar logo bisa menempel ke kiri */
+    padding: 0 30px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 28px;
+    color: #444;
+    margin-bottom: 50px;
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   3. Bootstrap Navbar - SAMA PERSIS dengan Referensi
+   ========================================================================== */
+
+/* --- 3.1 Latar Belakang & Posisi Navbar --- */
+.navbar-custom {
+  background: linear-gradient(80deg, #46074E, rgba(25, 123, 208, 0.8));
+  padding: 0;
+  min-height: 80px;
+}
+
+.navbar-custom.fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}
+
+/* --- 3.2 Container --- */
+.navbar-custom .container {
+  max-width: 1200px;
+  padding: 0 15px;
+}
+
+/* --- 3.3 Row & Column --- */
+.navbar-custom .row {
+  --bs-gutter-x: 0;
+  margin: 0;
+  min-height: 50px;
+}
+
+.navbar-custom [class*="col-"] {
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* --- 3.4 KOLOM 1: Logo --- */
+.navbar-custom .col-lg-3 {
+  padding-left: 0 !important;
+}
+
+.navbar-custom .navbar-brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+  margin-left: -40px;
+}
+
+.navbar-custom .navbar-brand img {
+  height: 60px;
+  width: auto;
+}
+
+.navbar-custom .navbar-brand span {
+  color: #FFFFFF;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  margin-left: 12px;
+  white-space: nowrap;
+}
+
+/* --- 3.5 KOLOM 2: Menu Navigasi --- */
+.navbar-custom .col-lg-6 {
+  justify-content: center;
+  padding: 0 !important;
+  padding-right: 350px !important;
+}
+
+.navbar-custom .col-lg-6 .navbar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  flex-direction: row;
+  gap: 0;
+}
+
+.navbar-custom .col-lg-6 .navbar-nav .nav-item {
+  padding: 0;
+  margin: 0 12px;
+}
+
+.navbar-custom .col-lg-6 .navbar-nav .nav-item:first-child {
+  margin-left: 0;
+}
+
+.navbar-custom .col-lg-6 .navbar-nav .nav-item:last-child {
+  margin-right: 0;
+}
+
+.navbar-custom .col-lg-6 .navbar-nav .nav-link {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 13px;
+  line-height: 16px;
+  color: #FFFFFF;
+  position: relative;
+  padding: 0 !important;
+  padding-bottom: 5px !important;
+  transition: opacity 0.3s;
+  text-decoration: none;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.navbar-custom .col-lg-6 .navbar-nav .nav-link:not(.active):hover {
+  opacity: 0.8;
+  color: #FFFFFF;
+}
+
+/* Garis bawah untuk link aktif */
+.navbar-custom .col-lg-6 .navbar-nav .nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: -4px;
+  width: 120%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.navbar-custom .col-lg-6 .navbar-nav .nav-link.active {
+  color: #FFFFFF !important;
+}
+
+/* --- 3.6 KOLOM 3: Actions --- */
+.navbar-custom .col-lg-3:last-child {
+  justify-content: flex-end;
+  padding-right: 0 !important;
+}
+
+.nav-actions-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 0;
+  margin: 0;
+}
+
+/* --- 3.7 Search Box --- */
+.nav-actions-wrapper .search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 32px;
+  margin-right: 100px;
+}
+
+.nav-actions-wrapper .search-box::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 6px;
+  width: 100%;
+  height: 1px;
+  bottom: -4px;
+  background-color: rgba(255, 255, 255, 0.892);
+}
+
+.nav-actions-wrapper .search-box .icon-magnifier {
+  position: absolute;
+  left: 0px;
+  top: 50%;
+  font-weight: bolder;
+  transform: translateY(-50%);
+  color: #FFFFFF;
+  font-size: 20px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 1;
+}
+
+.nav-actions-wrapper .search-box .icon-magnifier::before {
+  font-style: normal;
+  font-size: 19px;
+}
+
+.nav-actions-wrapper .search-box input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  padding: 8px 2px 8px 40px; /* Ditambah dari 28px untuk spasi lebih besar */
+  width: 230px; /* Ditambah dari 160px (lebih panjang) */
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 1000 !important;
+  font-size: 12px;
+}
+
+.nav-actions-wrapper .search-box input::placeholder {
+  color: rgb(255, 255, 255);
+  font-weight: 450;
+}
+
+/* --- 3.8 Tombol "DAFTAR ON-LINE" --- */
+.btn-custom-primary {
+  width: 140px;
+  height: 36px;
+  background-color: #195395;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 18px;
+  color: #FFFFFF !important;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 400;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+}
+
+.btn-custom-primary:hover {
+  opacity: 0.9;
+  background-color: #195395;
+  color: #FFFFFF !important;
+  text-decoration: none;
+}
+
+/* --- 3.9 Navbar Toggler --- */
+.navbar-custom .navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.5);
+  padding: 0.25rem 0.75rem;
+  display: none;
+  margin: 0;
+}
+
+.navbar-custom .navbar-toggler-icon {
+  width: 20px;
+  height: 20px;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* ==========================================================================
+   NAVBAR MOBILE RESPONSIVE - SEARCH BAR & BUTTON DAFTAR
+   ========================================================================== */
+
+/* --- Mobile Collapse Menu --- */
+.navbar-custom .navbar-collapse {
+  display: none !important;
+}
+
+.navbar-custom .navbar-collapse.show {
+  display: block !important;
+  background: linear-gradient(135deg, #46074E 0%, #195395 100%);
+  margin-top: 10px;
+  padding: 20px 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Mobile Navigation Links --- */
+.navbar-custom .navbar-collapse .navbar-nav {
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  margin-bottom: 15px;
+}
+
+.navbar-custom .navbar-collapse .nav-item {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-custom .navbar-collapse .nav-item:last-child {
+  border-bottom: none;
+}
+
+.navbar-custom .navbar-collapse .nav-link {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 15px;
+  color: #FFFFFF;
+  padding: 12px 10px !important;
+  text-decoration: none;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.navbar-custom .navbar-collapse .nav-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  padding-left: 15px !important;
+}
+
+.navbar-custom .navbar-collapse .nav-link.active {
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.15);
+  border-left: 3px solid #FFFFFF;
+  padding-left: 12px !important;
+}
+
+/* --- Mobile Search Box --- */
+.navbar-collapse .mobile-search-box {
+  width: 100%;
+  margin: 10px 0;
+  position: relative;
+}
+
+.navbar-collapse .mobile-search-box input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 25px;
+  padding: 12px 20px 12px 45px;
+  color: #FFFFFF;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.navbar-collapse .mobile-search-box input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.navbar-collapse .mobile-search-box input:focus {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.navbar-collapse .mobile-search-box .search-icon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 16px;
+  pointer-events: none;
+}
+
+/* --- Mobile Button Daftar --- */
+.navbar-collapse .mobile-btn-daftar {
+  width: 100%;
+  background-color: #195395;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 25px;
+  color: #FFFFFF !important;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-top: 15px;
+}
+
+.navbar-collapse .mobile-btn-daftar:hover {
+  background-color: #FFFFFF;
+  color: #46074E !important;
+  border-color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+}
+
+/* --- Responsive Breakpoints --- */
+@media (max-width: 991px) {
+  /* Show mobile search and button in collapse menu */
+  .navbar-custom .navbar-collapse.show .mobile-search-box,
+  .navbar-custom .navbar-collapse.show .mobile-btn-daftar {
+    display: block;
+  }
+}
+
+@media (min-width: 992px) {
+  /* Hide collapse menu on desktop */
+  .navbar-custom .navbar-collapse {
+    display: none !important;
+  }
+  
+  .navbar-collapse .mobile-search-box,
+  .navbar-collapse .mobile-btn-daftar {
+    display: none !important;
+  }
+}
+
+/* --- BONUS END -------- */
+
+/* --- 3.10 Mobile Collapse (Hidden di Desktop) --- */
+.navbar-custom .navbar-collapse {
+  display: none !important;
+}
+
+.navbar-custom .navbar-collapse.show {
+  display: block !important;
+  background: linear-gradient(80deg, #46074E, rgba(25, 123, 208, 0.8));
+  margin-top: 8px;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.navbar-custom .navbar-collapse .navbar-nav {
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navbar-custom .navbar-collapse .nav-item {
+  width: 100%;
+  padding: 8px 0;
+  margin: 0;
+}
+
+.navbar-custom .navbar-collapse .nav-link {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 13px;
+  color: #FFFFFF;
+  padding: 5px 0 !important;
+  text-decoration: none;
+}
+
+.navbar-custom .navbar-collapse .nav-link:hover {
+  opacity: 0.8;
+}
+
+/* --- 3.11 RESPONSIVE --- */
+@media (max-width: 991px) {
+  .navbar-custom .navbar-toggler {
+    display: block;
+  }
+  
+  .nav-actions-wrapper .search-box {
+    display: none;
+  }
+  
+  .nav-actions-wrapper .btn-custom-primary {
+    display: none;
+  }
+  
+  .nav-actions-wrapper {
+    justify-content: flex-end;
+  }
+
+  
+
+  
+}
+
+@media (max-width: 767px) {
+  .navbar-custom .navbar-brand span {
+    font-size: 18px;
+  }
+  
+  .navbar-custom .navbar-brand img {
+    height: 38px;
+  }
+  
+  .navbar-custom {
+    min-height: 45px;
+  }
+  
+  .navbar-custom .row {
+    min-height: 45px;
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar-custom .navbar-collapse {
+    display: none !important;
+  }
+}
+
+/* --- 3.12 Body Padding (KURANGI AGAR TIDAK ADA SPACE PUTIH) --- */
+body {
+  padding-top: 50px;
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  body {
+    padding-top: 45px;
+  }
+}
+
+/* Pastikan tidak ada margin/padding extra */
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  padding-top: 0 !important;
+}
+
+/* Remove any default margin dari section berikutnya */
+.navbar-custom + * {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(90deg, var(--purple) 0%, var(--purple) 20%, var(--blue) 50%, var(--blue) 100%);
+            padding: 2rem 0;
+            color: white;
+            height: 80px;
+            text-align: center;
+        }
+        
+        .footer p {
+            margin: 0;
+            font-size: 13px;
+            opacity: 0.95;
+        }
+
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    overflow: hidden;
+    height: auto;
+    min-height: 100vh;
+}
+
+.hero-image {
+    position: relative;
+    height: auto;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.hero-image img {
+    height: auto;
+    min-height: 100vh;
+    width: 100%;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: flex-end; /* pindahkan ke bawah */
+    justify-content: flex-start; /* posisikan ke kiri */
+    padding-left: 170px;
+    padding-bottom: 100px; /* beri jarak dari bawah */
+}
+
+.hero-overlay .container {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+    max-width: none !important;
+    width: 100%;
+}
+
+
+.hero-content {
+    width: 100%;
+}
+
+.hero-box {
+    background: linear-gradient(90deg, rgba(70, 7, 78, 0.85) 0%, rgba(25, 123, 208, 0.85) 100%);
+    padding: 50px 40px;
+    border-radius: 0;
+    max-width: 900px;
+    position: relative;
+    padding-left: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.hero-box::before {
+    content: '';
+    position: absolute;
+    left: 35px;
+    top: 0;
+    width: 1px;
+    height: 80%;
+    background: white;
+    opacity: 50%;
+}
+
+.hero-box h1 {
+    color: white;
+    font-size: 27px;
+    font-weight: 400;
+    margin: 0;
+    line-height: 1.5;
+    flex: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-hero {
+    background: transparent;
+    color: white;
+    padding: 0px 48px;
+    padding-right: 60px;
+    border: 1.5px solid white;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 30px;
+    transition: all 0.3s;
+    white-space: nowrap;
+    margin-left: 35px;
+    text-transform: uppercase;
+    font-size:23px;
+    position: relative;
+}
+
+.btn-hero::after {
+    content: '›';
+    font-size: 45px;
+    font-weight: 250;
+    padding-bottom: 20px;
+    line-height: 1;
+    display: inline-block;
+    transform: rotate(90deg);
+    transition: color 0.3s;
+}
+
+.btn-hero:hover {
+    background: white;
+    color: #197BD0;
+}
+
+/* Section Titles */
+.section-title {
+    font-size: 32px;
+    font-weight: 530;
+    color: #444;
+    margin-bottom: 30px;
+}
+
+/* Tentang Kami Section */
+.tentang-section {
+    background: white;
+    padding-top: 6rem !important;
+    padding-bottom: 6rem !important;
+}
+
+.section-description {
+    max-width: 1000px;
+    line-height: 1.8;
+    color: #666;
+    font-size: 25px;
+}
+
+
+/* Layanan Section */
+.layanan-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px; /* sedikit lebih kecil agar tidak terlalu bulat */
+    cursor: pointer;
+    width: 100%;
+    aspect-ratio: 4 / 3.25; /* ✅ rasio tetap (lebih fleksibel dari fixed height) */
+    transition: transform 0.3s ease;
+}
+
+.layanan-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease;
+}
+
+.layanan-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Gradasi overlay dari kiri ke kanan - TIDAK DIUBAH */
+.layanan-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right,
+        rgba(90, 20, 95, 0.92) 0%, 
+        rgba(90, 20, 95, 0.75) 25%, 
+        rgba(90, 20, 95, 0.4) 40%, 
+        transparent 100%);
+    color: white;
+    display: flex;
+    align-items: flex-end;
+    padding: 0;
+}
+
+/* Garis vertikal putih tetap sama */
+.layanan-overlay::before {
+    content: '';
+    position: absolute;
+    left: 25px;
+    top: 0;
+    width: 1.5px;
+    height: 80%; /* tetap 70% seperti yang kamu minta */
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.layanan-overlay h3 {
+    font-size: 24px;
+    font-weight: 500;
+    margin: 0;
+    padding-left: 27px;
+    padding-bottom: 25px;
+    position: relative;
+    z-index: 1;
+    line-height: 1.3;
+}
+
+/* Container diperbesar */
+.layanan-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+
+/* Mitra Section */
+.mitra-section {
+    background: white;
+    padding-top: 4rem;
+    padding-bottom: 3rem;
+}
+
+.mitra-section .section-title {
+    font-size: 32px;
+    font-weight: 530;
+    color: #5a5a5a;
+    margin-bottom: 3rem;
+}
+
+/* Container untuk mitra logos */
+.mitra-section .row {
+    margin-bottom: 2.5rem;
+}
+
+/* Mitra Logo Box - Ukuran dan spacing sesuai referensi */
+.mitra-section {
+    background: white;
+    padding-top: 4rem;
+    padding-bottom: 3rem;
+}
+
+.mitra-section .section-title {
+    font-size: 32px;
+    font-weight: 530;
+    color: #5a5a5a;
+    margin-bottom: 3rem;
+}
+
+/* Container untuk mitra logos */
+.mitra-section .row {
+    margin-bottom: 2.5rem;
+}
+
+/* Mitra Logo Box - LEBIH PERSEGI */
+.mitra-logo {
+    border-radius: 8px;
+    border: 1px solid #e8e8e8;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    aspect-ratio: 1 / 1; /* Membuat box persegi sempurna */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    padding: 30px;
+    transition: all 0.3s ease;
+}
+
+.mitra-logo:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.mitra-logo img {
+    max-height: 160px;
+    max-width: 200px;
+    object-fit: contain;
+}
+
+/* Konseling Box - Spacing dari mitra logos ke box */
+.konseling-box {
+    background: linear-gradient(90deg, #46074E 0%, #197BD0 100%);
+    padding: 35px 50px;
+    border-radius: 12px;
+    color: white;
+    margin-top: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.konseling-content h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+}
+
+.konseling-content p {
+    font-size: 15px;
+    font-weight: 400;
+    margin-bottom: 0;
+    opacity: 0.95;
+}
+
+/* Button Konseling - FIXED */
+.btn-konseling {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 0rem 1rem;
+  border-radius: 10px;
+            font-size: 1.4rem;
+            font-weight: 400;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            width: 220px;
+            height: 40px;
+            font-size: 16px;
+}
+
+/* Arrow icon untuk button - KE KANAN */
+.btn-konseling::after {
+  content: '›';
+  padding-left: 10px;
+  padding-bottom: 5px;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1;
+  transform: rotate(0deg); /* Diubah dari rotate(90deg) menjadi 0deg - ARROW KE KANAN */
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.btn-konseling:hover {
+  background: white;
+  color: #46074E;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+}
+
+.btn-konseling:hover::after {
+  color: #46074E;
+  transform: translateX(3px); /* Animasi arrow bergerak ke kanan saat hover */
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .mitra-logo {
+        padding: 25px;
+    }
+    
+    .konseling-box {
+        padding: 30px 40px;
+    }
+}
+
+@media (max-width: 991px) {
+    .mitra-section {
+        padding-top: 3rem;
+        padding-bottom: 2.5rem;
+    }
+    
+    .mitra-logo {
+        padding: 25px;
+        margin-bottom: 20px;
+    }
+    
+    .konseling-box {
+        padding: 30px 35px;
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+        margin-top: 2.5rem;
+    }
+    
+    .konseling-content h3 {
+        font-size: 22px;
+    }
+    
+    .konseling-content p {
+        font-size: 14px;
+    }
+
+    
+}
+
+@media (max-width: 768px) {
+    .mitra-section .section-title {
+        font-size: 28px;
+        margin-bottom: 2rem;
+    }
+    
+    .mitra-logo {
+        padding: 20px;
+    }
+    
+    .mitra-logo img {
+        max-height: 80px;
+    }
+    
+    .konseling-box {
+        padding: 25px 20px;
+        margin-top: 2rem;
+    }
+    
+    .konseling-content h3 {
+        font-size: 18px;
+    }
+    
+    .konseling-content p {
+        font-size: 13px;
+    }
+    
+    .btn-konseling {
+        padding: 11px 35px;
+        font-size: 14px;
+    }
+    
+    .btn-konseling::after {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .mitra-logo {
+        padding: 15px;
+    }
+    
+    .mitra-logo img {
+        max-height: 70px;
+    }
+
+    /* --- TAMBAHKAN INI --- */
+    .hero-section,
+    .hero-image,
+    .hero-image img {
+        /* Hapus paksaan tinggi 100vh */
+        min-height: auto; 
+    }
+    
+    .hero-image img {
+        /* Atur tinggi spesifik untuk HP */
+        height: 500px; 
+        
+        /* Ganti ini jadi 'cover' agar gambar mengisi 
+           area 400px tanpa penyok (akan ke-crop) */
+        object-fit: cover;
+    }
+
+    /* 1. Reset padding parent-nya agar box bisa nempel kiri */
+    .hero-overlay {
+        padding-left: 20px;  /* Reset dari 170px (desktop) */
+        padding-right: 20px; /* Kasih padding biar gak nempel banget ke layar */
+        padding-bottom: 60px; /* Kurangi padding bawah */
+        justify-content: flex-start; /* Pastikan tetap di kiri */
+    }
+
+    .hero-box {
+        /* 2. Hapus padding & max-width yang salah */
+        padding: 30px 25px; /* Padding normal (30px atas/bawah, 25px kiri/kanan) */
+        max-width: 100%;    /* Biarkan box-nya full width */
+        max-height: none;   /* Hapus batasan tinggi */
+
+        /* 3. Susun konten ke bawah (stacking) */
+        flex-direction: column;    /* Penting: Susun ke bawah */
+        align-items: flex-start; /* Ratakan konten ke kiri */
+        gap: 25px;               /* Jarak antara H1 dan Tombol */
+    }
+
+    .hero-box::before {
+        /* 4. Garis putihnya kita geser ke kiri juga */
+        left: 15px;
+        height: 70%; /* Sedikit penyesuaian */
+    }
+
+    .hero-box h1 {
+        /* 5. Besarkan font-nya */
+        font-size: 18px; /* Jauh lebih mudah dibaca */
+        line-height: 1.4;
+    }
+
+    .btn-hero {
+        /* 6. Hapus margin & sesuaikan tombol */
+        margin-left: 0;     /* Hapus margin kiri */
+        width: 100%;        /* Buat tombol jadi full-width */
+        justify-content: center; /* Tengahkan teks di dalam tombol */
+        font-size: 14px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    .btn-hero::after {
+        /* 7. Sesuaikan panah */
+        font-size: 30px;
+        font-weight: 250;
+        padding-bottom: 8px; /* Sesuaikan padding */
+    }
+
+    .navbar-custom .navbar-brand {
+        /* Hapus margin negatif dari desktop (-40px) 
+           dan beri sedikit jarak 10px dari tepi kiri layar */
+        margin-left: 10px; 
+    }
+    
+    .navbar-custom .navbar-brand span {
+        /* Opsi: Kecilkan sedikit font di layar 576px 
+           (desktop 24px, tablet 18px) */
+        font-size: 16px; 
+    }
+
+    /* 1. 'Tentang Kami' (Homepage) - 50% lebih kecil */
+.tentang-section .section-title {
+    font-size: 18px; /* 50% dari 32px */
+    margin-bottom: 20px;
+}
+
+.tentang-section .section-description {
+    font-size: 15px; /* 50% dari 25px */
+}
+
+/* 1. 'Tentang Kami' (Halaman Profil/Visi/Misi) - 50% lebih kecil */
+.profil-heading {
+    font-size: 22px; /* 50% dari 45px */
+}
+
+.profil-text {
+    font-size: 13px; /* 50% dari 25px */
+    padding-bottom: 20px;
+}
+
+.visi-misi-heading {
+    font-size: 20px; /* 50% dari 40px */
+}
+
+.visi-misi-text {
+    font-size: 10px; /* 50% dari 20px */
+}
+
+/* 2. Gambar Mitra - 50% lebih kecil (GANTI ATURAN LAMA) */
+.mitra-logo img {
+    max-height: 200px; /* 50% dari 70px */
+}
+
+/* 3. Teks Konseling - 40% lebih kecil */
+.konseling-content h3 {
+    font-size: 14px; /* 40% reduksi dari 24px */
+}
+
+.konseling-content p {
+    font-size: 9px; /* 40% reduksi dari 15px */
+}
+
+/* 4. Tombol Konseling - 40% lebih kecil */
+.btn-konseling {
+    font-size: 10px; /* 40% reduksi dari 16px */
+    padding: 8px 20px; /* Disesuaikan agar pas */
+    width: auto; /* Biar ukurannya pas */
+    height: auto;
+}
+
+.btn-konseling::after {
+    font-size: 18px; /* Panah disesuaikan */
+    padding-bottom: 2px;
+}
+
+/* 5. Isi Artikel - 40% lebih kecil */
+.article-description {
+    font-size: 18px !important; /* 40% reduksi dari 26px */
+}
+
+.article-content-1,
+.article-content-2,
+.article-content-3,
+.article-content-4 {
+    padding: 20px 30px; /* Padding disesuaikan */
+}
+
+.tentang-hero-overlay {
+        padding-left: 30px !important; 
+        padding-right: 0 !important;
+        padding-bottom: 30px !important; 
+    }
+    
+    /* 2. Hapus margin-left: 40px DAN padding-left: 30px */
+    .tentang-hero-overlay .container {
+        margin-left: 0 !important;    
+        padding-left: 20px !important;  /* Ini jadi padding utama (20px dari tepi) */
+        padding-right: 20px !important; 
+    }
+    
+    /* 3. Hapus margin-left dan kecilkan font */
+    .tentang-hero-title {
+        margin-left: 0 !important;     
+        font-size: 20px !important;    
+        padding-right: 0 !important;   
+    }
+
+}
+
+/* Articles Section */
+.articles-section {
+    padding: 80px 0;
+    background-color: #ffffff;
+}
+
+.articles-section h2 {
+    font-size: 32px;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.articles-section .container {
+    max-width: 1400px;
+}
+
+.articles-section .row {
+    justify-content: center;
+}
+
+.article-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.article-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.article-content-1,
+.article-content-2,
+.article-content-3,
+.article-content-4 {
+    padding: 25px 60px;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+
+.article-description {
+    font-size: 26px;
+    line-height: 1.6;
+    color: #555;
+    text-align: center;
+    margin: 0;
+}
+.btn-more-articles {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 12px 50px;
+    background: transparent;
+    color: transparent;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s;
+    position: relative;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(90deg, #46074E, #197BD0);
+}
+
+.btn-more-articles::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 25px;
+    padding: 2px;
+    background: linear-gradient(90deg, #46074E, #197BD0);
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.btn-more-articles:hover {
+    color: #fff;
+    background-image: linear-gradient(90deg, #46074E, #197BD0);
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(70, 7, 78, 0.3);
+}
+
+
+/* Hubungi Section */
+
+.hubungi-section {
+    background: white;
+    padding: 80px 0;
+}
+
+.hubungi-section .section-title {
+    font-size: 32px;
+    font-weight: 600;
+    color: #5a5a5a;
+    text-align: center;
+    margin-bottom: 50px;
+    letter-spacing: 1px;
+}
+
+.hubungi-section h4 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #5a5a5a;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+}
+
+.hubungi-section .text-center {
+    max-width: 800px;
+    margin: 0 auto;
+    margin-bottom: 45px;
+}
+
+.hubungi-section p {
+    font-size: 16px;
+    color: #6a6a6a;
+    margin-bottom: 8px;
+    line-height: 1.8;
+}
+
+/* Button Container - Much closer gap */
+.hubungi-section .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin: 0;
+}
+
+/* Remove Bootstrap column defaults */
+.hubungi-section .col-md-4 {
+    flex: none;
+    width: auto;
+    padding: 0;
+    margin: 0;
+}
+
+/* Button Lokasi Kami - Gradient Purple to Blue */
+.btn-lokasi {
+    background: linear-gradient(90deg, #5a1a5f 0%, #4a7cbf 100%);
+    color: white;
+    padding: 14px 55px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    box-shadow: 0 3px 10px rgba(90, 26, 95, 0.3);
+    min-width: 280px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.btn-lokasi:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(90, 26, 95, 0.4);
+    color: white;
+}
+
+/* Button Kirim Pesan - White with Blue Border */
+.btn-pesan {
+    background: white;
+    color: #4a7cbf;
+    padding: 14px 55px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    border: 2px solid #4a7cbf;
+    min-width: 280px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.btn-pesan:hover {
+    background: linear-gradient(90deg, #5a1a5f 0%, #4a7cbf 100%);
+    color: white;
+    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(74, 124, 191, 0.3);
+}
+
+/* Force override any Bootstrap styles */
+.hubungi-section .row.g-3 {
+    gap: 40px !important;
+}
+
+.hubungi-section .row > * {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hubungi-section {
+        padding: 60px 0;
+    }
+    
+    .hubungi-section .section-title {
+        font-size: 28px;
+        margin-bottom: 35px;
+    }
+    
+    .hubungi-section h4 {
+        font-size: 20px;
+    }
+    
+    .hubungi-section p {
+        font-size: 14px;
+    }
+    
+    .hubungi-section .text-center {
+        margin-bottom: 35px;
+    }
+    
+    .hubungi-section .row {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .btn-lokasi,
+    .btn-pesan {
+        padding: 13px 45px;
+        font-size: 15px;
+        min-width: 260px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hubungi-section .text-center {
+        margin-bottom: 30px;
+    }
+    
+    .btn-lokasi,
+    .btn-pesan {
+        padding: 12px 40px;
+        font-size: 14px;
+        min-width: 240px;
+    }
+    
+    .hubungi-section .row {
+        gap: 15px;
+    }
+}
+        
+
+
+/* Tentang Kami Hero Section */
+.tentang-hero-section {
+    position: relative;
+    overflow: hidden;
+    height: 500px;
+}
+
+.tentang-hero-image {
+    position: relative;
+    height: 500px;
+    width: 100%;
+}
+
+.tentang-hero-image img {
+    height: 500px;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.tentang-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, rgba(70, 7, 78, 0.85) 0%, rgba(70, 7, 78, 0.75) 30%, transparent 100%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 0 0 80px 200px;
+    box-sizing: border-box;
+}
+
+.tentang-hero-overlay .container {
+    padding-left: 0 !important;
+    padding-right: 0 !important; /* opsional */
+    margin-left: 40px; /* jarak dari tepi kiri yang bisa diubah */
+    max-width: none; /* biar tidak terbatasi */
+}
+
+.tentang-hero-title {
+    color: white;
+    font-size: 42px;
+    font-weight: 600;
+    text-align: left;
+    margin: 0;
+    margin-left: -20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Profil Section */
+.profil-section {
+    background: white;
+}
+
+.profil-image-wrapper {
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.profil-image-wrapper img {
+    transition: transform 0.5s ease;
+}
+
+.profil-image-wrapper:hover img {
+    transform: scale(1.05);
+}
+
+.profil-content {
+    padding: 0 20px;
+}
+
+.profil-text {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+/* Profil Section */
+.profil-section {
+    background-color: #fff;
+    color: #333;
+}
+
+.profil-heading {
+    font-size: 45px;
+    font-weight: 400;
+    color: #444;
+    padding-bottom: 20px;
+}
+
+.profil-text {
+    font-size: 25px;
+    line-height: 1.7;
+    color: #555;
+    text-align: justify;
+    padding-bottom: 35px;
+}
+
+/* Gambar */
+.profil-section img {
+    border-radius: 10px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.profil-section img:hover {
+    transform: scale(1.02);
+}
+
+/* Visi & Misi */
+.visi-misi-heading {
+    font-size: 40px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.visi-misi-text {
+    font-size: 20px;
+    line-height: 1.8;
+    color: #555;
+    text-align: justify;
+}
+
+/* Tombol */
+.btn-outline-custom {
+    display: inline-block;
+    padding: 15px 60px;
+    border-radius: 50px;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    background-color: transparent;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    color: transparent;
+    border: none;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(90deg, #46074E, #197BD0);
+}
+
+/* Outline gradien */
+.btn-outline-custom::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50px;
+    padding: 2px; /* ketebalan outline */
+    background: linear-gradient(90deg, #46074E, #197BD0);
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+/* Hover effect */
+.btn-outline-custom:hover {
+    color: #fff;
+    background-image: linear-gradient(90deg, #46074E, #197BD0);
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+}
+
+
+
+/* Hubungi Section pada Tentang */
+.kantor-title {
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-size: 22px;
+    text-transform: uppercase;
+}
+
+.kantor-text {
+    color: #666;
+    line-height: 1.8;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+/* Responsive untuk Tentang Kami */
+@media (max-width: 991px) {
+    .tentang-hero-section {
+        height: 220px;
+    }
+    
+    .tentang-hero-image {
+        height: 220px;
+    }
+    
+    .tentang-hero-image img {
+        height: 220px;
+    }
+    
+    .tentang-hero-overlay {
+        padding-bottom: 25px;
+    }
+    
+    .tentang-hero-title {
+        font-size: 32px;
+        margin-left: 20px;
+    }
+    
+    .profil-content {
+        padding: 0;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .tentang-hero-section {
+        height: 180px;
+    }
+    
+    .tentang-hero-image {
+        height: 180px;
+    }
+    
+    .tentang-hero-image img {
+        height: 180px;
+    }
+    
+    .tentang-hero-overlay {
+        padding-bottom: 20px;
+    }
+    
+    .tentang-hero-title {
+        font-size: 24px;
+        margin-left: 10px;
+    }
+    
+    .profil-text {
+        font-size: 15px;
+    }
+    
+    .visi-misi-card {
+        padding: 30px 20px;
+    }
+    
+    .visi-misi-title {
+        font-size: 24px;
+    }
+    
+    .visi-misi-text {
+        font-size: 15px;
+    }
+}
