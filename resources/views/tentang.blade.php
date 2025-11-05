@@ -25,36 +25,36 @@
             yang berpengalaman, terbesar, terpercaya, dan juga memiliki jam terbang tinggi untuk melayani para anak-anak 
             muda Indonesia untuk menuntut ilmu di berbagai negara maju dunia.
         </p>
-
+        
+        <!-- Visi dan Misi Section - Struktur Baru -->
         <div class="row g-4 mb-5">
+            <!-- Visi -->
             <div class="col-md-6">
-                <img src="{{ asset('images/visi.png') }}" alt="Profil Inaklug" class="img-fluid rounded shadow-sm">
+                <div class="visi-misi-card">
+                    <img src="{{ asset('images/misi.png') }}" alt="Visi Inaklug" class="img-fluid rounded shadow-sm mb-3">
+                    <h3 class="visi-misi-heading">Visi</h3>
+                    <p class="visi-misi-text">
+                        Membangun Sumber Daya Indonesia yang mempunyai daya saing tinggi, tangguh secara internasional untuk 
+                        menghadapi persaingan di era globalisasi serta membangun karakter pemimpin Indonesia masa depan yang 
+                        tangguh, mandiri, dan profesional.
+                    </p>
+                </div>
             </div>
+            
+            <!-- Misi -->
             <div class="col-md-6">
-                <img src="{{ asset('images/misi.png') }}" alt="Tim Inaklug" class="img-fluid rounded shadow-sm">
+                <div class="visi-misi-card">
+                    <img src="{{ asset('images/visi.png') }}" alt="Misi Inaklug" class="img-fluid rounded shadow-sm mb-3">
+                    <h3 class="visi-misi-heading">Misi</h3>
+                    <p class="visi-misi-text">
+                        Membangun Sumber Daya Indonesia yang mempunyai daya saing tinggi, tangguh secara internasional untuk 
+                        menghadapi persaingan di era globalisasi serta membangun karakter pemimpin Indonesia masa depan yang 
+                        tangguh, mandiri, dan profesional.
+                    </p>
+                </div>
             </div>
         </div>
-
-        <div class="row text-start">
-            <div class="col-md-6 mb-4">
-                <h3 class="visi-misi-heading">Visi</h3>
-                <p class="visi-misi-text">
-                    Membangun Sumber Daya Indonesia yang mempunyai daya saing tinggi, tangguh secara internasional untuk 
-                    menghadapi persaingan di era globalisasi serta membangun karakter pemimpin Indonesia masa depan yang 
-                    tangguh, mandiri, dan profesional.
-                </p>
-            </div>
-
-            <div class="col-md-6 mb-4">
-                <h3 class="visi-misi-heading">Misi</h3>
-                <p class="visi-misi-text">
-                    Membangun Sumber Daya Indonesia yang mempunyai daya saing tinggi, tangguh secara internasional untuk 
-                    menghadapi persaingan di era globalisasi serta membangun karakter pemimpin Indonesia masa depan yang 
-                    tangguh, mandiri, dan profesional.
-                </p>
-            </div>
-        </div>
-
+        
         <div class="text-center mt-5">
             <a href="#" class="btn-outline-custom">Layanan Kami</a>
         </div>

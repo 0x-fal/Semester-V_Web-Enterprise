@@ -420,7 +420,7 @@ body {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 700px) {
   /* Hide collapse menu on desktop */
   .navbar-custom .navbar-collapse {
     display: none !important;
@@ -430,6 +430,15 @@ body {
   .navbar-collapse .mobile-btn-daftar {
     display: none !important;
   }
+
+  .navbar-custom .navbar-brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+  margin-left: 30px; /* <--- INI MASALAHNYA */
+}
 }
 
 /* --- BONUS END -------- */
@@ -474,7 +483,7 @@ body {
 }
 
 /* --- 3.11 RESPONSIVE --- */
-@media (max-width: 991px) {
+@media (max-width: 1199.98px) {
   .navbar-custom .navbar-toggler {
     display: block;
   }
@@ -491,9 +500,6 @@ body {
     justify-content: flex-end;
   }
 
-  
-
-  
 }
 
 @media (max-width: 767px) {
@@ -514,11 +520,59 @@ body {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   .navbar-custom .navbar-collapse {
     display: none !important;
   }
 }
+
+/* ==========================================================================
+   PERBAIKAN KHUSUS IPAD PRO (1024px)
+   ========================================================================== */
+
+/* Target: Hanya layar di atas 992px (lg) TAPI di bawah 1200px (xl)
+*/
+@media (min-width: 992px) and (max-width: 1199.98px) {
+
+    /* 1. Paksa kolom logo (col-lg-3) agar lebarnya 
+         mengikuti aturan .col-md-4 (33.33%) 
+    */
+    .navbar-custom .row .col-lg-3:first-child {
+        width: 33.33333333% !important;
+        flex: 0 0 33.33333333% !important;
+    }
+
+    /* 2. Paksa kolom aksi (col-lg-3) agar lebarnya 
+         mengikuti aturan .col-md-8 (66.66%)
+    */
+    .navbar-custom .row .col-lg-3:last-child {
+        width: 66.66666667% !important;
+        flex: 0 0 66.66666667% !important;
+    }
+
+    /* 3. Pastikan wrapper aksi (termasuk tombol hamburger) 
+         mengisi penuh kolomnya dan rata kanan.
+    */
+    .nav-actions-wrapper {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    /* 4. Tampilkan tombol hamburger (karena menu desktop disembunyikan)
+    */
+    .navbar-custom .navbar-toggler {
+        display: block !important;
+    }
+
+    /* 5. Sembunyikan search box dan tombol daftar versi desktop
+    */
+    .nav-actions-wrapper .search-box,
+    .nav-actions-wrapper .btn-custom-primary {
+        display: none !important;
+    }
+}
+
+
 
 /* --- 3.12 Body Padding (KURANGI AGAR TIDAK ADA SPACE PUTIH) --- */
 body {
@@ -923,6 +977,23 @@ html {
     .konseling-box {
         padding: 30px 40px;
     }
+
+    .hero-section,
+    .hero-image,
+    .hero-image img {
+        /* Hapus paksaan tinggi 100vh */
+        min-height: auto; 
+    }
+    
+    .hero-image img {
+        /* Atur tinggi spesifik untuk HP */
+        height: 900px; 
+        
+        /* Ganti ini jadi 'cover' agar gambar mengisi 
+           area 400px tanpa penyok (akan ke-crop) */
+        object-fit: cover;
+    }
+
 }
 
 @media (max-width: 991px) {
@@ -952,7 +1023,35 @@ html {
         font-size: 14px;
     }
 
+    .hero-section,
+    .hero-image,
+    .hero-image img {
+        /* Hapus paksaan tinggi 100vh */
+        min-height: auto; 
+    }
     
+    .hero-image img {
+        /* Atur tinggi spesifik untuk HP */
+        height: 900px; 
+        
+        /* Ganti ini jadi 'cover' agar gambar mengisi 
+           area 400px tanpa penyok (akan ke-crop) */
+        object-fit: cover;
+    }
+
+        .mitra-section .section-title {
+        font-size: 35px;
+        margin-bottom: 2rem;
+    }
+    
+    .mitra-logo {
+        padding: 20px;
+    }
+    
+    .mitra-logo img {
+        max-height: 80px;
+        max-width: 150px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1698,5 +1797,369 @@ html {
     
     .visi-misi-text {
         font-size: 15px;
+    }
+}
+
+/* ==================== ARTIKEL PAGE ==================== */
+
+/* Artikel Hero Section */
+.artikel-hero-section {
+    position: relative;
+    overflow: hidden;
+    height: 500px;
+}
+
+.artikel-hero-image {
+    position: relative;
+    height: 500px;
+    width: 100%;
+}
+
+.artikel-hero-image img {
+    height: 500px;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.artikel-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, rgba(70, 7, 78, 0.85) 0%, rgba(70, 7, 78, 0.75) 30%, transparent 100%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 0 0 80px 200px;
+    box-sizing: border-box;
+}
+
+.artikel-hero-content {
+    max-width: 800px;
+}
+
+.artikel-category {
+    display: inline-block;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.artikel-hero-title {
+    color: white;
+    font-size: 42px;
+    font-weight: 400;
+    margin: 0;
+    line-height: 1.3;
+    letter-spacing: 0.5px;
+}
+
+/* Featured Articles Section (2 Cards) */
+.featured-articles-section {
+    background: white;
+    padding: 60px 0;
+}
+
+.featured-article-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.featured-article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.featured-article-image {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
+
+.featured-article-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.featured-article-card:hover .featured-article-image img {
+    transform: scale(1.05);
+}
+
+.featured-article-content {
+    padding: 25px 20px;
+}
+
+.featured-article-content h3 {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #333;
+    margin: 0;
+}
+
+/* Articles List Section - Background Putih */
+.articles-list-section {
+    background: white;
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+}
+
+/* ✅ Articles Section Title - Align Kiri & Lebih Kecil */
+.articles-section-title {
+    font-size: 24px; /* ✅ Diubah dari 32px ke 24px */
+    font-weight: 600;
+    color: #5a5a5a;
+    text-align: left; /* ✅ Diubah dari center ke left */
+    letter-spacing: 1px;
+    padding-left: 0; /* ✅ Padding kiri default 0 */
+}
+
+.articles-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* ✅ Article List Item - Borderless dengan Border saat Hover */
+.article-list-item {
+    display: flex;
+    gap: 25px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    /* ✅ Hapus shadow default, ganti dengan border transparent */
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* ✅ Hover Effect - Border Tipis Muncul */
+.article-list-item:hover {
+    transform: translateX(5px);
+    border: 1px solid #e0e0e0; /* ✅ Border tipis abu-abu muncul saat hover */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06); /* ✅ Shadow halus saat hover */
+}
+
+.article-list-image {
+    flex-shrink: 0;
+    width: 400px;
+    height: 180px;
+    overflow: hidden;
+}
+
+.article-list-image img {
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.article-list-item:hover .article-list-image img {
+    transform: scale(1.05);
+}
+
+.article-list-content {
+    flex: 1;
+    padding: 25px 30px 25px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.article-list-title {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #333;
+    margin: 0 0 10px 0;
+    transition: color 0.3s ease; /* ✅ Tambahan animasi untuk title */
+}
+
+/* ✅ Title berubah warna saat hover */
+.article-list-item:hover .article-list-title {
+    color: #46074E;
+}
+
+.article-list-meta {
+    font-size: 14px;
+    color: #999;
+    margin: 0;
+}
+
+/* Pagination */
+.artikel-pagination {
+    margin-top: 50px;
+}
+
+.artikel-pagination .pagination {
+    gap: 10px;
+}
+
+.artikel-pagination .page-item .page-link {
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.artikel-pagination .page-item.active .page-link {
+    background: linear-gradient(90deg, #46074E 0%, #197BD0 100%);
+    border-color: transparent;
+    color: white;
+}
+
+.artikel-pagination .page-item .page-link:hover {
+    background: linear-gradient(90deg, #46074E 0%, #197BD0 100%);
+    border-color: transparent;
+    color: white;
+}
+
+.artikel-pagination .page-item.disabled .page-link {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Responsive Artikel Page */
+@media (max-width: 991px) {
+    .artikel-hero-section {
+        height: 40vh;
+    }
+    
+    .artikel-hero-image {
+        height: 40vh;
+    }
+    
+    .artikel-hero-image img {
+        height: 40vh;
+    }
+    
+    .artikel-hero-overlay {
+        padding-left: 50px;
+        padding-bottom: 60px;
+    }
+    
+    .artikel-hero-title {
+        font-size: 28px;
+    }
+    
+    .featured-article-image {
+        height: 220px;
+    }
+    
+    .article-list-item {
+        flex-direction: column;
+    }
+    
+    .article-list-image {
+        width: 100%;
+        height: 200px;
+    }
+    
+    .article-list-content {
+        padding: 20px;
+    }
+    
+    /* ✅ Responsive untuk title Artikel Terbaru */
+    .articles-section-title {
+        font-size: 22px;
+        padding-left: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .artikel-hero-overlay {
+        padding-left: 40px;
+        padding-bottom: 50px;
+    }
+    
+    .artikel-hero-title {
+        font-size: 24px;
+    }
+    
+    .featured-article-content h3 {
+        font-size: 16px;
+    }
+    
+    .article-list-title {
+        font-size: 18px;
+    }
+    
+    /* ✅ Responsive untuk title Artikel Terbaru */
+    .articles-section-title {
+        font-size: 20px;
+        padding-left: 5px;
+    }
+}
+
+@media (max-width: 576px) {
+    .artikel-hero-overlay {
+        padding-left: 30px;
+        padding-bottom: 40px;
+    }
+    
+    .artikel-hero-title {
+        font-size: 20px;
+    }
+    
+    .artikel-category {
+        font-size: 12px;
+    }
+    
+    .featured-article-image {
+        height: 180px;
+    }
+    
+    .artikel-pagination .page-item .page-link {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+    }
+    
+    /* ✅ Responsive untuk title Artikel Terbaru */
+    .articles-section-title {
+        font-size: 18px;
+        padding-left: 0;
+    }
+}
+
+/* ======================= Section Divider ======================= */
+.section-divider {
+    width: 100%;
+    height: 1.5px;
+    background-color: #e0e0e0; /* Warna abu-abu muda */
+    margin-top: 80px;    /* Jarak dari konten di atas (misal: pagination) */
+    margin-bottom: 80px; /* Jarak ke konten di bawah (misal: Hubungi Kami) */
+}
+
+/* ======================= AlertBox ======================= */
+#alertBox {
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
     }
 }

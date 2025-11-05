@@ -1,5 +1,5 @@
 <header>
-        <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+        <nav class="navbar navbar-expand-xl navbar-custom fixed-top">
             <div class="container">
                 <div class="row w-100 align-items-center">
 
@@ -10,7 +10,7 @@
                         </a>
                     </div>
 
-                    <div class="col-lg-6 d-none d-lg-block">
+                    <div class="col-lg-6 d-none d-xl-block">
                         <ul class="navbar-nav justify-content-center">
                             <li class="nav-item">
                                 {{-- Cek apakah nama rute saat ini 'home', jika ya, tambahkan 'active' --}}
@@ -24,10 +24,10 @@
                             </li>
                             <li class="nav-item">
                                 {{-- Link anchor # tidak bisa pakai routeIs, karena bukan route halaman --}}
-                                <a class="nav-link" href="#artikel">Artikel</a>
+                                <a class="nav-link {{ request()->routeIs('artikel') ? 'active' : '' }}" href="{{ route('artikel') }}">Artikel</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#hubungi-kami">Hubungi Kami</a>
+                                <a class="nav-link {{ request()->routeIs('hubungi') ? 'active' : '' }}" href="{{ route('hubungi') }}">Hubungi Kami</a>
                             </li>
                         </ul>
                     </div>
@@ -49,13 +49,13 @@
                 </div>
             </div>
 
-            <div class="collapse navbar-collapse d-lg-none" id="navbarNav">
+            <div class="collapse navbar-collapse d-xl-none" id="navbarNav">
                  <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">Home</a></li>
                     <li class="nav-item"><a class="nav-link {{ request()->routeIs('tentang') ? 'active' : '' }}" href="{{ route('tentang') }}">Tentang Kami</a></li>
                     <li class="nav-item"><a class="nav-link {{ request()->routeIs('layanan') ? 'active' : '' }}" href="{{ route('layanan') }}">Layanan</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#artikel">Artikel</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#hubungi-kami">Hubungi Kami</a></li>
+                    <li class="nav-item"><a class="nav-link {{ request()->routeIs('artikel') ? 'active' : '' }}" href="{{ route('artikel') }}">Artikel</a></li>
+                    <li class="nav-item"><a class="nav-link {{ request()->routeIs('hubungi') ? 'active' : '' }}" href="{{ route('hubungi') }}">Hubungi Kami</a></li>
 
                     <!-- Mobile Search Box -->
                     <div class="mobile-search-box">

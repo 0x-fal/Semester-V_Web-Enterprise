@@ -38,8 +38,8 @@
     <div class="layanan-container">
         <h2 class="section-title text-center mb-5">LAYANAN KAMI</h2>
         
-        <div class="row g-4 mb-4">
-            <div class="col-12 col-md-6 col-lg-4">
+        <div class="row g-4">
+            <div class="col-12 col-sm-6 col-lg-4">
                 <div class="layanan-card">
                     <img src="<?php echo e(asset('images/bachelor.png')); ?>" alt="Studi S1" class="w-100">
                     <div class="layanan-overlay">
@@ -48,7 +48,7 @@
                 </div>
             </div>
             
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-sm-6 col-lg-4">
                 <div class="layanan-card">
                     <img src="<?php echo e(asset('images/master.png')); ?>" alt="Studi S2" class="w-100">
                     <div class="layanan-overlay">
@@ -57,7 +57,7 @@
                 </div>
             </div>
             
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-sm-6 col-lg-4">
                 <div class="layanan-card">
                     <img src="<?php echo e(asset('images/phd.jpg')); ?>" alt="Studi S3" class="w-100">
                     <div class="layanan-overlay">
@@ -65,10 +65,8 @@
                     </div>
                 </div>
             </div>
-        </div>
         
-        <div class="row g-4">
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-sm-6 col-lg-4">
                 <div class="layanan-card">
                     <img src="<?php echo e(asset('images/bahasajerman.png')); ?>" alt="Kursus Bahasa" class="w-100">
                     <div class="layanan-overlay">
@@ -77,7 +75,7 @@
                 </div>
             </div>
             
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-sm-6 col-lg-4">
                 <div class="layanan-card">
                     <img src="<?php echo e(asset('images/studytour.png')); ?>" alt="Study Tour" class="w-100">
                     <div class="layanan-overlay">
@@ -86,7 +84,7 @@
                 </div>
             </div>
             
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-sm-6 col-lg-4">
                 <div class="layanan-card">
                     <img src="<?php echo e(asset('images/ausbildung.jpg')); ?>" alt="Ausbildung" class="w-100">
                     <div class="layanan-overlay">
